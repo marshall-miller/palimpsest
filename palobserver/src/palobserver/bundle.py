@@ -1,4 +1,5 @@
-import uuid, datetime, json, gzip
+import uuid, json, gzip
+from datetime import datetime, timezone
 from pathlib import Path
 from palobserver.crypto import digest, sign
 from palobserver.rules import flags
