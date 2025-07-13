@@ -3,7 +3,6 @@ from datetime import datetime, timezone
 from pathlib import Path
 from palobserver.crypto import digest, sign
 from palobserver.rules import flags
-from datetime import datetime, UTC
 
 def build_bundle(docs, key_path="observer.pem"):
     """
