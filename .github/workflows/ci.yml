@@ -33,7 +33,7 @@ jobs:
           python -m pip install --upgrade pip
           # Install build extra deps; no OpenAI key needed for unit tests
           pip install pynacl pyyaml click pytest
-          pip install -e .
+          pip install -e palobserver 
 
       - name: Run tests
         run: python -m pytest -q
