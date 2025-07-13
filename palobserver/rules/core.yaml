@@ -1,0 +1,4 @@
+- code: net_payment_conflict
+  severity: 0.8
+  pattern: '\bNet[-\s]?([1-9]\d?)\b'
+

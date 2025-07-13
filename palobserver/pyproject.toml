@@ -1,0 +1,72 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "palimps"
+version = "0.0.1a0"
+description = "Signed Context Bundle observer for LLM pipelines"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "Marshall Miller", email = "marshall_miller3@outlook.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = ["pynacl", "pyyaml", "click",]
+
+[project.scripts]
+pal = "palobserver.cli:pal"
+
+
+[project.urls]
+Homepage = "https://github.com/marshall-miller/palimpsest"
+Documentation = "https://github.com/marshall-miller/palimpsest#readme"
+##Issues = "https://github.com/U.N. Owen/palobserver/issues"
+##Source = "https://github.com/U.N. Owen/palobserver"
+
+[tool.hatch.version]
+path = "src/palobserver/__about__.py"
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/palobserver tests}"
+
+[tool.coverage.run]
+source_pkgs = ["palobserver", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/palobserver/__about__.py",
+]
+
+[tool.coverage.paths]
+palobserver = ["src/palobserver", "*/palobserver/src/palobserver"]
+tests = ["tests", "*/palobserver/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
+
+[tool.hatch.build.targets.wheel]
+# Ship the code that lives in src/palobserver even though the
+# distribution name is "palimps"
+packages = ["src/palobserver"]
+
