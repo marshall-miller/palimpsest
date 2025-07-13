@@ -31,7 +31,7 @@ def build_bundle(docs, key_path="observer.pem"):
     headers = {
         "@context": "https://palimpsest.dev/scb/v0.1",
         "bundle_id": uuid.uuid4().hex,
-        "created": datetime.now(timezone.UTC).isoformat(),
+        "created": datetime.now(timezone.utc).isoformat(),
         "window_tokens": sum(m["tokens"] for m in shard_meta),
         "shards": shard_meta,
         "body_sha256": digest(body_bytes).hex(),
