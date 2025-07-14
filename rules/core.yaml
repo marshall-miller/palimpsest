@@ -1,3 +1,8 @@
 - code: net_payment_conflict
   severity: 0.8
   pattern: '\bNet[-\s]?([1-9]\d?)\b'
+
+- code: net_payment_extract         
+  extract: net_days
+  pattern: '\bNet[-\s]?([1-9]\d?)\b'
+
